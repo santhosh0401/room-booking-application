@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Sign Up</h1>
+    <form  onsubmit=return validateForm() action="/signup" method="post" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="nameInput">Name</label>
+        <input type="text" class="form-control" id="nameInput" name="name" required>
+        <div class="invalid-feedback">Please enter your name.</div>
+      </div>
+      <div class="form-group">
+        <label for="usernameInput">Username</label>
+        <input type="username" class="form-control" id="usernameInput" name="username" required>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+      </div>
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input type="password" class="form-control" id="passwordInput" name="password" required>
+        <div class="invalid-feedback">Password must be at least 8 characters long and contain at least one capital letter.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    function validateForm() {
+      const passwordInput = document.getElementById('passwordInput');
+      const passwordValue = passwordInput.value;
+
+      // Validate password
+      if (passwordValue.length < 8 || !/[A-Z]/.test(passwordValue)) {
+        passwordInput.classList.add('is-invalid');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>

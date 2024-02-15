@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>following rooms are available</h1>
+
+    <% if (bookings.length > 0) { %>
+        <div>
+            <% for(let room of bookings) { %>
+                <h3><% room.roomNo %></h3>
+                <h3><% room.roomType %></h3>
+                <% } %>
+        </div>
+    <% } else { %>
+        <div>All rooms booked</div>
+    <% } %>
+
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
